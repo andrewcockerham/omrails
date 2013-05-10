@@ -5,7 +5,9 @@ Omrails::Application.routes.draw do
 
   get "pages/Bryan"
 
-  
+  get 'bryan' => 'pages#bryan'
+
+  get 'dad' => 'pages#dad'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

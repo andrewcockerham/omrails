@@ -4,4 +4,10 @@ class PagesController < ApplicationController
 
   def action
   end
+
+  def bryan
+  end
+
+  def dad
+  end
 end
