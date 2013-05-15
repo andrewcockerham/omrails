@@ -11,7 +11,7 @@ Omrails::Application.routes.draw do
   #get '' => 'pages#home'
   #get '/' => 'pages#home'
   
-  get "pages/Bryan"
+  #get "pages/Bryan"
 
   get 'bryan' => 'pages#bryan'
 
