@@ -1,13 +1,25 @@
 Omrails::Application.routes.draw do
+
+  devise_for :users
+
+  #devise_for :users
+
   get 'about' => 'pages#about'
 
   root :to => 'pages#home'
 
+  #get '' => 'pages#home'
+  #get '/' => 'pages#home'
+  
   get "pages/Bryan"
 
   get 'bryan' => 'pages#bryan'
 
   get 'dad' => 'pages#dad'
+
+  get 'david' => 'pages#david'
+
+  get 'answer' => 'pages#answer'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
