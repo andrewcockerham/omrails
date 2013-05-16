@@ -17,4 +17,7 @@ class PagesController < ApplicationController
 
   def answer
   end
+
+  def vip  	
+  end
 end
