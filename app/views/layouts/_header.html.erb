@@ -24,6 +24,10 @@
           <% if user_signed_in? %>
             <li><%= link_to "VIP", vip_path %></li>
           <% end %>
+
+          <% if user_signed_in? && current_user.hirer %>
+            <li><%= link_to "Post a Job", job_post_path %></li>
+          <% end %>
         <!-- .nav, .navbar-search, .navbar-form, etc -->
 	     </ul>
 	     <ul class='nav pull-right'>

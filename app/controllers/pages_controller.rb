@@ -20,4 +20,7 @@ class PagesController < ApplicationController
 
   def vip  	
   end
+
+  def new_job_post    
+  end
 end

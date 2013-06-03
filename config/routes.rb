@@ -24,6 +24,8 @@ Omrails::Application.routes.draw do
 
   get 'vip' => 'pages#vip'
 
+  get 'job_post' => 'pages#job_post'
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
