@@ -4,7 +4,8 @@ class PinsController < ApplicationController
   # GET /pins
   # GET /pins.json
   def index
-    @pins = Pin.all
+    @pins = Pin.order("created_at desc")
+    #@pins = Pin.all
 
    # @pins = current_user.pins.all
    # if @pins.empty?
