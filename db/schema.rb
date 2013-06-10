@@ -11,9 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130606030659) do
+ActiveRecord::Schema.define(:version => 20130610120606) do
 
-  create_table "jobs", :force => true do |t|
+  create_table "applications", :force => true do |t|
+    t.integer  "job_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "applications", ["job_id"], :name => "index_applications_on_job_id"
+
+  create_table "job_applications", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  add_index "job_applications", ["user_id"], :name => "index_job_applications_on_user_id"
+
+  create_table "job_postings", :force => true do |t|
     t.string   "title"
     t.string   "description"
     t.datetime "created_at",  :null => false
@@ -21,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20130606030659) do
     t.integer  "user_id"
   end
 
-  add_index "jobs", ["user_id"], :name => "index_jobs_on_user_id"
+  add_index "job_postings", ["user_id"], :name => "index_jobs_on_user_id"
 
   create_table "pins", :force => true do |t|
     t.string   "description"

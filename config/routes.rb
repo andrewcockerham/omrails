@@ -1,6 +1,9 @@
 Omrails::Application.routes.draw do
 
-  resources :jobs
+  resources :job_applications
+
+
+  resources :job_postings
 
 
   resources :pins

@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="span6 offset3">
+		<div class="well">
+			<p>
+			  <%= @job_posting.title %>
+			</p>
+			<p>
+			  <%= @job_posting.description %>
+			</p>
+			<%= link_to 'Apply', "#{}" %> |
+			<% if current_user == @job_posting.user %>
+				<%= link_to 'Edit', edit_job_posting_path(@job_posting) %> |
+			<% end %>
+			<%= link_to 'Back', job_postings_path %>
+		</div>
+	</div>
+</div>

@@ -19,14 +19,14 @@
           <li><%= link_to "David", david_path %></li>
     			<li><%= link_to "About", about_path %></li>
     			<li><%= link_to "Bryan", bryan_path %></li>
-    			<li><%= link_to "Dad", dad_path %></li>
+    			<li><%= link_to "Job Postings", job_postings_path %></li>
 
           <% if user_signed_in? %>
             <li><%= link_to "VIP", vip_path %></li>
           <% end %>
 
           <% if user_signed_in? && current_user.hirer %>
-            <li><%= link_to "Post a Job", new_job_path %></li>
+            <li><%= link_to "Post a Job", new_job_posting_path %></li>
           <% end %>
         <!-- .nav, .navbar-search, .navbar-form, etc -->
 	     </ul>

@@ -1,6 +1,6 @@
-class CreateJobs < ActiveRecord::Migration
+class CreateJobPostings < ActiveRecord::Migration
   def change
-    create_table :jobs do |t|
+    create_table :job_postings do |t|
       t.string :title
       t.string :description
 

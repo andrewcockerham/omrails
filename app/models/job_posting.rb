@@ -1,7 +1,8 @@
-class Job < ActiveRecord::Base
+class JobPosting < ActiveRecord::Base
   attr_accessible :description, :title
 
   belongs_to :user
+  has_many :job_applications
 
   validates :description, presence: true, :length => { :maximum => 1000 }
   validates :title, presence: true
