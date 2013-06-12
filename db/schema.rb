@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612121214) do
+ActiveRecord::Schema.define(:version => 20130612121723) do
 
   create_table "applications", :force => true do |t|
     t.integer  "job_id"
@@ -79,10 +79,12 @@ ActiveRecord::Schema.define(:version => 20130612121214) do
     t.datetime "updated_at",                             :null => false
     t.string   "name"
     t.boolean  "hirer"
+    t.integer  "job_experience_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["hirer"], :name => "index_users_on_hirer"
+  add_index "users", ["job_experience_id"], :name => "index_users_on_job_experience_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

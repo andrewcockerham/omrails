@@ -9,14 +9,15 @@
   <%= f.input :password_confirmation, label: "New Password Confirmation", autocomplete: "off" %>
   <%= f.input :current_password %>
 
-  <h2> Job Experience </h2>
-  <%= f.input @current_user.job_experience %>
+
+<h2> Job Experience </h2>
+  <%= f.input @current_user.job_experience.company%>
+
 
   <div class="form-actions">
     <%= f.submit "Update", class: "btn btn-primary" %>
   </div>
 <% end %>
-
 
 <h3>Cancel my account</h3>
 
