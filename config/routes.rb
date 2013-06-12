@@ -1,5 +1,8 @@
 Omrails::Application.routes.draw do
 
+  resources :job_experiences
+
+
   resources :job_applications
 
 

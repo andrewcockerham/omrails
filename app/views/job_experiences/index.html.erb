@@ -1,0 +1,29 @@
+<h1>Listing job_experiences</h1>
+
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Job title</th>
+    <th>Description</th>
+    <th>Start date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @job_experiences.each do |job_experience| %>
+  <tr>
+    <td><%= job_experience.company %></td>
+    <td><%= job_experience.job_title %></td>
+    <td><%= job_experience.description %></td>
+    <td><%= job_experience.start_date %></td>
+    <td><%= link_to 'Show', job_experience %></td>
+    <td><%= link_to 'Edit', edit_job_experience_path(job_experience) %></td>
+    <td><%= link_to 'Destroy', job_experience, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Job experience', new_job_experience_path %>

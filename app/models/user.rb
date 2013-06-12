@@ -12,4 +12,5 @@ class User < ActiveRecord::Base
   has_many :pins, :dependent => :destroy
   has_many :job_postings, :dependent => :destroy
   has_many :job_applications, :dependent => :destroy
+  has_many :job_experiences, :dependent => :destroy
 end
