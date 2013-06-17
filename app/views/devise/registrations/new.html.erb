@@ -9,19 +9,32 @@
   <%= f.input :password_confirmation %>
   <%= f.input :hirer, as: :boolean %>
 
-<!--
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
--->
+  <%= f.fields_for :job_experience_attributes do |j| %>
+    <%= j.input :company %>
+
+  <% end %>
+
   <div class="form-actions">
   	<%= f.submit "Sign up", class: "btn btn-primary" %>
   </div>
+
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+<!--  # @job_experience = JobExperience.new(params[:job_experience_id = :user_id]) 
+
+ @job_experience = current_user.job_experiences.new(params[:user_id])
+
+  <div>#f.label :email <br />
+   #f.email_field :email, :autofocus => true </div>
+
+  <div> #f.label :password <br />
+  # f.password_field :password </div>
+
+  <div>#f.label :password_confirmation <br />
+   #f.password_field :password_confirmation </div>
+-->

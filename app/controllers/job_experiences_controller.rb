@@ -24,7 +24,9 @@ class JobExperiencesController < ApplicationController
   # GET /job_experiences/new
   # GET /job_experiences/new.json
   def new
-    @job_experience = JobExperience.new
+    #@job_experience = current_user.job_experiences.new
+    #@job_experience = JobExperience.new
+    @job_experience = current_user.build_job_experience
 
     respond_to do |format|
       format.html # new.html.erb
