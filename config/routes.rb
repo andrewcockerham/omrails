@@ -18,18 +18,9 @@ Omrails::Application.routes.draw do
 
   root :to => 'pages#home'
 
-  #get '' => 'pages#home'
-  #get '/' => 'pages#home'
-  
-  #get "pages/Bryan"
-
   get 'bryan' => 'pages#bryan'
 
   get 'dad' => 'pages#dad'
-
-  get 'david' => 'pages#david'
-
-  get 'answer' => 'pages#answer'
 
   get 'vip' => 'pages#vip'
 

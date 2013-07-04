@@ -1,16 +1,39 @@
 class UsersController < ApplicationController
 	def new
-		@user = User.new(job_experience: JobExperience.new)
-		#@job_experience = JobExperience.new(:user_id => 1) #current_user.user_id)
-		#@job_experience.save
+	#	@user = User.new(job_experience: JobExperience.new)
+#		super
+#		@user = User.new
 	end
 
 	def create
-		@user = User.new(params[:user])
-		if @user.save
-			redirect_to(@user, notice: "User was successfully created")
-		else
-			render :new
-		end
+#		super
+	#	@user = User.new(params[:user])
+	#	if @user.save
+	#		redirect_to(@user, notice: "User was successfully created")
+			#redirect_to(next page from ppt)
+	#	else
+	#		render :new
+	#	end
+
+	# from tutorial
+#		@user = User.new(params[:user])
+#	    if @user.save
+#	      redirect_to @user
+#	    else
+#	      render :action => 'new'
+#	    end
+
 	end
+
+	# from tutorial
+#	def update
+#		super
+#    @user = User.find(params[:id])
+#    if @user.update(params[:user])
+#      redirect_to @user
+#    else
+#      render :action => 'edit'
+#    end
+#  end
+
 end

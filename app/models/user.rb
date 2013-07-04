@@ -9,12 +9,17 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :hirer, :job_experience_attributes
   # attr_accessible :title, :body
 
+  # Validations
   validates_uniqueness_of :email
-  
+
+  # Associations
   has_many :pins, :dependent => :destroy
   has_many :job_postings, :dependent => :destroy
   has_many :job_applications, :dependent => :destroy
   has_one :job_experience, :dependent => :destroy
 
+  # Nested Attributes
   accepts_nested_attributes_for :job_experience
+   # :allow_destroy => true,
+   # :reject_if     => :all_blank
 end

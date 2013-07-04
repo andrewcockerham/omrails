@@ -11,16 +11,11 @@ class PagesController < ApplicationController
   def dad
   end
 
-  def david
-  	@data = params[:David_answer]  	
-  end
-
-  def answer
-  end
-
   def vip  	
   end
 
   def job_post    
   end
 end
+
+    #@data = params[:David_answer]    

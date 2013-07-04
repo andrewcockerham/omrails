@@ -9,13 +9,13 @@
   <%= f.input :password_confirmation, label: "New Password Confirmation", autocomplete: "off" %>
   <%= f.input :current_password %>
 
-
 <h2> Job Experience </h2>
   <%= f.fields_for :job_experience_attributes do |j| %>
     <%= j.input :company %>
     <%= j.input :job_title %>
+    <%= j.input	:description, as: :text, input_html: { rows: "10" } %>
+    <%= j.input :start_date, as: :date, discard_day: true %>
   <% end %>
-
 
   <div class="form-actions">
     <%= f.submit "Update", class: "btn btn-primary" %>

@@ -10,7 +10,6 @@
   <%= f.input :hirer, as: :boolean %>
 
 
-
   <%= f.fields_for :job_experience_attributes do |j| %>
     <%= j.input :company %>
 
@@ -25,10 +24,7 @@
 <%= render "devise/shared/links" %>
 
 
-<!--  # @job_experience = JobExperience.new(params[:job_experience_id = :user_id]) 
-
- @job_experience = current_user.job_experiences.new(params[:user_id])
-
+<!--  
   <div>#f.label :email <br />
    #f.email_field :email, :autofocus => true </div>
 
