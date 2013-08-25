@@ -1,7 +1,7 @@
 <%= simple_form_for(@user) do |f| %>
 
 	<h2> Job Experiences </h2>
-		<%= f.fields_for :job_experiences_attributes do |j| %>
+		<%= f.fields_for :job_experience_attributes do |j| %>
 			<div>
 				<%= j.label :company %>
 				<%= j.text_field :company %>

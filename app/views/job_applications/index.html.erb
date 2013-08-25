@@ -1,21 +1,11 @@
-<h1>Listing job_applications</h1>
+<h1>Your Job Applications</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if @job_applications.length == 0 %>
+      <p> You have not applied for any jobs yet. </p>
+      <%= link_to 'Apply Now', job_postings_path %>
+  <%  end %>
 
-<% @job_applications.each do |job_application| %>
-  <tr>
-    <td><%= link_to 'Show', job_application %></td>
-    <td><%= link_to 'Edit', edit_job_application_path(job_application) %></td>
-    <td><%= link_to 'Destroy', job_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<div id="job_applications">
+  <%= render @job_applications %>
+</div>
 
-<br />
-
-<%= link_to 'New Job application', new_job_application_path %>

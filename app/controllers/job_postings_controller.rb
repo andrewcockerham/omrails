@@ -1,6 +1,6 @@
 class JobPostingsController < ApplicationController
   before_filter :authenticate_user!
-
+  before_filter :is_admin?, except: [:index, :show]
   # GET /job_postings
   # GET /job_postings.json
   def index
@@ -10,6 +10,11 @@ class JobPostingsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @job_postings }
     end
+  end
+
+  def my_index
+    @my_job_postings = current_user.job_postings.all
+    
   end
 
   # GET /job_postings/1
@@ -23,9 +28,17 @@ class JobPostingsController < ApplicationController
     end
   end
 
+  def show_applications
+    @applications = JobApplication.find_all_by_job_posting_id(params[:job_application][:job_posting_id])
+    @user = User.find(@applications[0].user_id)
+    @application1 = @applications[0]
+    @application2 = @applications[1]
+  end
+
   # GET /job_postings/new
   # GET /job_postings/new.json
   def new
+    
     @job_posting = current_user.job_postings.new
     #@job_posting = JobPosting.new
 
@@ -87,6 +100,14 @@ class JobPostingsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to job_postings_url }
       format.json { head :no_content }
+    end
+  end
+
+  def is_admin?
+    if current_user.hirer
+      true
+    else
+      render :text => "You must have hiring privelages to post a job"
     end
   end
 end

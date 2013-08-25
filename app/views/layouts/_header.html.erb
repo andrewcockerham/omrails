@@ -10,7 +10,9 @@
       </a>
  
       <!-- Be sure to leave the brand out there if you want it shown -->
-      <a class="brand" href="/">SkillChest</a>
+      <a class="brand" href="/"> <img src="/assets/logo.png" alt="logo"> SkillChest</a>
+      <!-- class="img-responsive"> 
+    -->
       <!-- <% link_to "SkillChest", root_path, class: "brand" %> -->
       <!-- Everything you want hidden at 940px or less, place within here -->
       <div class="nav-collapse collapse">
@@ -26,6 +28,7 @@
 
           <% if user_signed_in? && current_user.hirer %>
             <li><%= link_to "Post a Job", new_job_posting_path %></li>
+            <li><%= link_to "My Job Postings", my_job_postings_path %></li>
           <% end %>
         <!-- .nav, .navbar-search, .navbar-form, etc -->
 	     </ul>

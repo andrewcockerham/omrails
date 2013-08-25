@@ -9,8 +9,7 @@
   <%= f.input :password_confirmation %>
   <%= f.input :hirer, as: :boolean %>
 
-
-  <%= f.fields_for :job_experience_attributes do |j| %>
+  <%= f.fields_for :job_experiences_attributes do |j| %>
     <%= j.input :company %>
 
   <% end %>

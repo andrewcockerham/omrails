@@ -7,11 +7,21 @@
 			<p>
 			  <%= @job_posting.description %>
 			</p>
-			<%= link_to 'Apply', "#{}" %> |
+			<p><%= params %></p>
 			<% if current_user == @job_posting.user %>
 				<%= link_to 'Edit', edit_job_posting_path(@job_posting) %> |
+				<%= link_to 'Destroy', @job_posting, method: :delete, data: { confirm: 'Are you sure?' } %> |
+				<%= link_to 'View Applications', job_posting_applications_path(:job_application => { :job_posting_id => @job_posting.id }) %> |
+			<% else %>
+				<%= link_to 'Apply', new_job_application_path(:job_application => { :job_posting_id => @job_posting.id }) %> |
 			<% end %>
 			<%= link_to 'Back', job_postings_path %>
 		</div>
 	</div>
+</div>
+
+<div>
+	<%= simple_form_for(@job_posting) do |f| %>
+	<%= f.hidden_field :job_posting_id, value: @job_posting.id %>	
+	<% end %>
 </div>

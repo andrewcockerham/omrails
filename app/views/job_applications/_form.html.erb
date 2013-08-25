@@ -1,10 +1,68 @@
-<%= simple_form_for(@job_application) do |f| %>
-  <%= f.error_notification %>
+<div class="row">
+	<div class="span3">
+		<h3> Your contact info </h3>
+	</div>
+	<div class="span9">
+		<dl class="dl-horizontal">
+			<div class="box">
+				<%= simple_form_for(@job_application) do |f| %>
+			  <%= f.error_notification %>
+		  	<% user = User.find(current_user.id) %>
+		    <dt><%= f.label :your_name %></dt>
+		  	<dd><%= user.name %></dd>
+		  	<dt><%= f.label :email %></dt>
+		  	<dd><%= user.email %><dd>
+	  	</div>
+  	</dl>
+	</div>
+</div>
 
-  <div class="form-inputs">
-  </div>
+<div class="row">
+	<div class="span6">
+		<h3> The job you're applying for </h3>
+	</div>
+	<div class="span6">
+		<h3> Your SkillChest application </h3>
+	</div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<div class="row">
+	<div class="span6">
+		<div class="box">
+		  	<%= f.label :job_title %>
+		  	<% @job_posting = JobPosting.find(params[:job_application][:job_posting_id]) #@job_application.job_posting_id) %>
+		  	<%= @job_posting.title %>
+		  	<%= f.label :job_description %>
+		  	<%= @job_posting.description %>
+		  	<% @job_application.job_posting_id = @job_posting.id %>
+		</div>
+	</div>
+
+	<div class="span6">
+		<div class="box">
+		  	<% if JobExperience.find_by_user_id(current_user.id) != nil %>
+		  		<%= f.label :job_experience %>
+			  	<% job_experience = JobExperience.find_by_user_id(current_user.id) %>
+			  	<%= job_experience.company %>	
+			  	<%= f.label :job_title %>
+			  	<%= job_experience.job_title %>
+		  	<% end %>
+		</div>
+	</div>
+</div> 
+
+<div>
+	<%= f.hidden_field :job_posting_id, value: @job_posting.id %>	
+</div>
+
+<div class="form-actions">
+  <%= f.button :submit, class: "btn btn-primary" %>
+</div>
+  <%= user.id %>
+  		  	<%= @job_application.job_posting_id %>
+<%= params %>
+<% @job_application.save %>
+
+<% #link_to 'Test', job_applications_job_posting_path(@job_posting) %>
+
 <% end %>

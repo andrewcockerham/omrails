@@ -1,6 +1,7 @@
 class JobApplication < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :job_posting_id
   belongs_to :user
+  belongs_to :job_posting
   
   has_many	:job_experiences
 

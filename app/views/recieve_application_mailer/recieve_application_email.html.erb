@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey <%= @user.name %> , </h1>
+    <p>
+      You have successfully signed up to example.com,
+      your username is: <%= @user.name %>.<br/>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Someone has applied to your job posting (add link) </p>
+    <p>Here is the job application below. (you can also view it on SkillChest.com here) </p>
+
+    <p> You can view their profile <%= link_to 'here', user_url(@user) %></p> 
+
+    <p> <% user = User.find(@job_application.user_id) %> </p>
+    <p> Applicant: <%=  user.name %> </p>
+    <p> <% job_experience = JobExperience.find_all_by_user_id(user.id) %> </p>
+    <p> Applicant's Job Experience: </p> 
+    <p> Company: <%=  job_experience[0].company %> </p>
+
+
+  </body>
+</html>

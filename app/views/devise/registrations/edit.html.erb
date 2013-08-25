@@ -10,7 +10,20 @@
   <%= f.input :current_password %>
 
 <h2> Job Experience </h2>
-  <%= f.fields_for :job_experience_attributes do |j| %>
+  <% job_experiences = JobExperience.find_all_by_user_id(current_user.id) %>
+  <% if job_experiences.length == 0 %>
+    <p>You have not entered any job experiences yet.</p>
+  <% elsif job_experiences.length == 1 %>
+    <%= job_experiences[0].company %>  
+    <%= job_experiences[0].job_title %> 
+  <% elsif job_experiences.length > 1 %>
+      <% for x in job_experiences.length %>
+          <%= job_experiences[x].company %>  
+          <%= job_experiences[x].job_title %> 
+      <% end %>      
+    <% end %>
+    
+  <%= f.fields_for :job_experiences_attributes do |j| %>
     <%= j.input :company %>
     <%= j.input :job_title %>
     <%= j.input	:description, as: :text, input_html: { rows: "10" } %>

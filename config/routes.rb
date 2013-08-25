@@ -4,9 +4,12 @@ Omrails::Application.routes.draw do
 
 
   resources :job_applications
+  match 'job_applications/:id' => 'job_applications#show', as: :job_application
 
 
-  resources :job_postings
+  resources :job_postings, shallow: true do
+  resources :job_applications
+  end
 
 
   resources :pins
@@ -26,6 +29,10 @@ Omrails::Application.routes.draw do
   get 'vip' => 'pages#vip'
 
   get 'job_post' => 'pages#job_post'
+
+  get 'my_job_postings' => 'job_postings#my_index'
+
+  get 'job_posting_applications' => 'job_postings#show_applications'
  
   # The priority is based upon order of creation:
   # first created -> highest priority.

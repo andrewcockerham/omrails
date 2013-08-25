@@ -1,0 +1,28 @@
+<h1> Applications for (this job) </h1>
+<div id="show_applicaitons">
+		<% #render @application1 %>
+		<!-- <div class="box">
+			<p>Company</p>
+			<% #@user.job_experience.company %>
+			<% #@user.job_experience.job_title %>
+			<% #@user.job_experience.description %>
+			<% #@user.job_experience.start_date %>
+		</div>
+		<% #params %>
+		<% #@application1.user_id %>
+		<% #@application2.user_id %>
+		<% #render 'job_applications/job_application' %>
+-->
+		<% @applications.each do |a| %>
+		<div class="box">
+			<% #a.user_id %>
+			<% @usertest = User.find(a.user_id) %>
+			<p><%= @usertest.name %></p>
+			<%= @usertest.job_experience.company %>
+			<%= @usertest.job_experience.job_title %>
+			<%= @usertest.job_experience.description %>
+			<%= @usertest.job_experience.start_date %>
+	</div>
+		<% end %>
+	
+</div>

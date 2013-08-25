@@ -1,3 +1,14 @@
+<h1> Job Postings </h1>
+<div id="job_postings">
+  <%= render @job_postings %>
+</div>
+
+<br />
+<% if current_user.hirer %>
+  <%= link_to 'Post New Job', new_job_posting_path %>
+<% end %>
+
+<!--
 <h1>Job Listings</h1>
 
 <table class="table table-striped">
@@ -12,10 +23,7 @@
   </thead>
 
   <tbody>
-    <%= render @job_postings %>
+    
   </tbody>
 </table>
-
-<br />
-
-<%= link_to 'Post New Job', new_job_posting_path %>
+-->

@@ -33,11 +33,12 @@ body {
     font-size: 11px;
     line-height: 1.4em;
     float: left;
+    text-align: left;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     box-shadow: 1px 1px 10px #444;
-    width: 214px;
+    /*width: 214px;*/
 }
 
 .box img {
@@ -50,3 +51,26 @@ body {
 .description {
     margin: 10px 0 5px;
 }
+
+.navbar .brand img {
+    width: 25px;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*
+.navbar .brand {
+    width: 5%;
+    /*position: fixed;
+    max-height: 40px;
+    overflow: visible;
+    padding-left: 0;
+    padding-top: 0;
+}
+*/
+/*
+.brand {
+    width: 5%;
+    padding-left: 0;
+}
+*/
