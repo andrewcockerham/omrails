@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+	<div class="span6 offset3">
+		<div class="well">
+
+			<embed src=<%= @certificate.certificate_pdf %> width="500" height="375" type="application/pdf">
+			<iframe src=<%= @certificate.certificate_pdf %> width="600" height="780" style="border: none;"> </iframe>
+
+			<%= link_to "View Certificate" , @certificate.certificate_pdf.url %>
+			<!--<iframe src="http://docs.google.com/viewer?url=http%3A%2F%2Ff.cl.ly%2Fitems%2F0E1l1h1W2W3J423w1q1X%2Ftest.pdf&embedded=true" width="600" height="780" style="border: none;"></iframe>
+			@certificate.certificate_pdf.url
+			<embed src="@certificate.certificate_pdf.path" width="500" height="375" type="application/pdf">
+				<embed src="/system/certificates/certificate_pdfs/000/000/007/19035122-V2W-LFCZ_(1).pdf" width="500" height="375" type="application/pdf">
+			-->
+			<p>
+			  <b>Name:</b>
+			</p>
+
+			<p>
+			  <b>Institution:</b>
+			  <%= @certificate.institution %>
+			</p>
+
+			<p>
+			  <b>Date completed:</b>
+			  <%= @certificate.date_completed %>
+			</p>
+
+<%= link_to 'Edit', edit_certificate_path(@certificate) %> |
+<%= link_to 'Back', certificates_path %>
+
+		</div>
+	</div>
+</div>

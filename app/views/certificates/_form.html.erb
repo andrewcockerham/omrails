@@ -1,0 +1,19 @@
+<%= simple_form_for(@certificate) do |f| %>
+  <%= f.error_notification %>
+  <%= f.full_error :certificate_pdf_content_type, class: "alert alert-error" %>
+  <%= f.full_error :certificate_pdf_file_size, class: "alert alert-error" %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :institution %>
+    <%= f.input :date_completed %>
+    <%= f.input :certificate_pdf, label: "Upload a pdf of your certificate" %>
+  </div>
+  <div>
+    <%= f.hidden_field :user_id, value: current_user.id %> 
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

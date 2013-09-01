@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   has_many :job_applications, :dependent => :destroy
   has_many :job_experiences, :dependent => :destroy
 
+  has_many :certificates
+
   # Nested Attributes
   accepts_nested_attributes_for :job_experiences
    # :allow_destroy => true,

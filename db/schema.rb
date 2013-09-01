@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130707184331) do
+ActiveRecord::Schema.define(:version => 20130826114257) do
 
   create_table "applications", :force => true do |t|
     t.integer  "job_id"
@@ -20,6 +20,22 @@ ActiveRecord::Schema.define(:version => 20130707184331) do
   end
 
   add_index "applications", ["job_id"], :name => "index_applications_on_job_id"
+
+  create_table "certificates", :force => true do |t|
+    t.string   "name"
+    t.string   "institution"
+    t.date     "date_completed"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "user_id"
+    t.string   "certificate_pdf_file_name"
+    t.string   "certificate_pdf_content_type"
+    t.integer  "certificate_pdf_file_size"
+    t.datetime "certificate_pdf_updated_at"
+  end
+
+  add_index "certificates", ["institution"], :name => "index_certificates_on_institution"
+  add_index "certificates", ["user_id"], :name => "index_certificates_on_user_id"
 
   create_table "job_applications", :force => true do |t|
     t.datetime "created_at",     :null => false

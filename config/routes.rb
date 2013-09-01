@@ -1,5 +1,8 @@
 Omrails::Application.routes.draw do
 
+  resources :certificates
+
+
   resources :job_experiences
 
 
@@ -34,6 +37,8 @@ Omrails::Application.routes.draw do
 
   get 'job_posting_applications' => 'job_postings#show_applications'
  
+  match '/certificates/pdf/:id' => 'certificates#pdf'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
