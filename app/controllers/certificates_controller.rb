@@ -2,8 +2,9 @@ class CertificatesController < ApplicationController
   # GET /certificates
   # GET /certificates.json
   def index
-    @certificates = Certificate.all
-
+    #@certificates = Certificate.all
+    @certificates = current_user.certificates.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @certificates }
