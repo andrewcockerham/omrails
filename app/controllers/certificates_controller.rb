@@ -1,10 +1,13 @@
 class CertificatesController < ApplicationController
+  before_filter :authenticate_user!
+  #before_filter is_current_user?
+
   # GET /certificates
   # GET /certificates.json
   def index
     #@certificates = Certificate.all
     @certificates = current_user.certificates.all
-    
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @certificates }
@@ -14,11 +17,13 @@ class CertificatesController < ApplicationController
   # GET /certificates/1
   # GET /certificates/1.json
   def show
-    @certificate = Certificate.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @certificate }
+    #@certificates = current_user.certificates.all
+    #@certificate = @certificates.find(params[:id])
+    #@certificate = current_user.certificates.all.find(params[:id])
+    if current_user.id == Certificate.find(params[:id]).user_id
+      @certificate = Certificate.find(params[:id])
+    else
+      redirect_to certificates_url, notice: 'You can only view your own certificates'
     end
   end
 
@@ -34,9 +39,13 @@ class CertificatesController < ApplicationController
   end
 
   # GET /certificates/1/edit
-  def edit
-    @certificate = Certificate.find(params[:id])
-  end
+#def edit
+#    if current_user.id == Certificate.find(params[:id]).user_id
+#      @certificate = Certificate.find(params[:id])
+#    else
+#      redirect_to certificates_url, notice: 'You can only edit your own certificates'
+#    end
+#  end
 
   # POST /certificates
   # POST /certificates.json
@@ -87,4 +96,9 @@ class CertificatesController < ApplicationController
    # send_file(pdf_filename, :filename => "19035122-V2W-LFCZ_(1).pdf", :disposition => 'inline', :type => "application/pdf")
     
   #end
+
+  #def is_current_user?
+  #  return current_user    
+  #end
+
 end
